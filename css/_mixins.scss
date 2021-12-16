@@ -1,0 +1,30 @@
+/* MIXINS
+----------------------------------*/
+
+@mixin transition($time: 0.25s) {
+    transition: all $time ease-in-out;
+}
+
+@mixin lineClamp($lines: 3, $fontSize: 17px, $lineHeight: 1.3) {
+	display: block;
+  	display: -webkit-box;
+	-webkit-line-clamp: $lines;
+	-webkit-box-orient: vertical; 
+	overflow: hidden;
+	text-overflow: ellipsis; 
+	max-height: calc($lines * $fontSize * $lineHeight);
+}
+
+@mixin withFocus($spread: 10px) {
+	&:focus:after { 
+		content: ""; 
+		display: block; 
+		position: absolute; 
+		top: -$spread; 
+		right: -$spread; 
+		bottom: -$spread; 
+		left: -$spread; 
+		border: 1px solid #888888; 
+		pointer-events: none; 
+	}
+}
